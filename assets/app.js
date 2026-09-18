@@ -1,12 +1,17 @@
 (() => {
   "use strict";
 
-  // IHA changes the transparent cover filename. Its stable trait is the
-  // thumbnail structure: a GIF <img> nested in a <div> inside a link.
+  // IHA changes the transparent cover filename. The stable thumbnail trait is
+  // a GIF <img> in a linked <div> that already has the real image as a CSS
+  // background. This deliberately preserves ordinary GIF media.
   const cleanerSource = `(() => {
     "use strict";
     const overlaySelector = "a div img[src*='.gif']";
     let removed = 0;
+    const isCover = (image) => {
+      const container = image.parentElement;
+      return container && getComputedStyle(container).backgroundImage !== "none";
+    };
     const clean = (root = document) => {
       const images = [
         ...(root.matches?.(overlaySelector) ? [root] : []),
@@ -14,7 +19,10 @@
       ];
       images.forEach((image) => {
         const source = image.currentSrc || image.src || "";
-        if (/\\.gif(?:[?#]|$)/i.test(source)) { image.remove(); removed += 1; }
+        if (/\\.gif(?:[?#]|$)/i.test(source) && isCover(image)) {
+          image.remove();
+          removed += 1;
+        }
       });
     };
     clean();

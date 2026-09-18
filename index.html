@@ -48,8 +48,17 @@
         </article>
       </section>
 
+      <section class="auto-card" aria-labelledby="auto-title">
+        <div>
+          <p class="step">Автоматический режим</p>
+          <h2 id="auto-title">Очищать страницы IHA сразу при открытии</h2>
+          <p>Установите расширение-менеджер userscript, например Tampermonkey, затем откройте и установите скрипт. После этого очистка запускается на каждой странице IHA автоматически.</p>
+        </div>
+        <a class="install-script" href="scripts/iha-clean.user.js">Открыть userscript</a>
+      </section>
+
       <aside class="notice">
-        <strong>Важно:</strong> GitHub Pages не может управлять содержимым стороннего сайта внутри iframe из-за ограничений браузера. Поэтому bookmarklet запускается в контексте открытой страницы IHA; это надёжнее и не требует сервера или передачи паролей через этот проект.
+        <strong>Важно:</strong> GitHub Pages не может управлять содержимым стороннего сайта внутри iframe из-за ограничений браузера. Bookmarklet запускается вручную в контексте страницы IHA, а userscript — автоматически после его установки. Оба варианта не требуют сервера и не передают пароли через этот проект.
       </aside>
     </main>
     <script src="assets/app.js"></script>
