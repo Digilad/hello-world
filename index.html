@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Чистый просмотр медиа на IHA.ee" />
+    <meta name="theme-color" content="#12161f" />
+    <title>IHA Clean Viewer</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <a class="brand" href="./" aria-label="IHA Clean Viewer">IHA <span>Clean</span></a>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Быстрый просмотр медиа</p>
+        <h1 id="page-title">Уберите GIF-слои с фото и видео на IHA.ee</h1>
+        <p class="lead">Добавьте кнопку в закладки, откройте IHA.ee и нажмите её. Скрипт убирает GIF-слой из структуры медиа-карточек, не загружая и не сохраняя контент на этом сайте.</p>
+      </section>
+
+      <section class="install-card" aria-labelledby="install-title">
+        <div>
+          <p class="step">Шаг 1</p>
+          <h2 id="install-title">Перетащите кнопку в панель закладок</h2>
+          <p>Либо скопируйте её и создайте новую закладку, вставив скопированный текст в поле URL.</p>
+        </div>
+        <div class="actions">
+          <a id="bookmarklet" class="bookmarklet" href="#">IHA: очистить медиа</a>
+          <button id="copy-button" class="copy-button" type="button">Скопировать</button>
+          <output id="copy-status" class="copy-status" aria-live="polite"></output>
+        </div>
+      </section>
+
+      <section class="how" aria-label="Как использовать">
+        <article>
+          <span>2</span>
+          <h2>Откройте IHA</h2>
+          <p>Перейдите на страницу с фотографиями или видео в <a href="https://www.iha.ee/" rel="noopener noreferrer" target="_blank">iha.ee</a>.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <h2>Нажмите закладку</h2>
+          <p>Слой исчезнет сразу. Скрипт также обработает элементы, которые сайт подгрузит позднее.</p>
+        </article>
+        <article>
+          <span>↻</span>
+          <h2>Запускайте повторно</h2>
+          <p>При переходе на другую страницу IHA нажмите закладку ещё раз.</p>
+        </article>
+      </section>
+
+      <aside class="notice">
+        <strong>Важно:</strong> GitHub Pages не может управлять содержимым стороннего сайта внутри iframe из-за ограничений браузера. Поэтому bookmarklet запускается в контексте открытой страницы IHA; это надёжнее и не требует сервера или передачи паролей через этот проект.
+      </aside>
+    </main>
+    <script src="assets/app.js"></script>
+  </body>
+</html>
